@@ -1,0 +1,105 @@
+{% load static %}
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+  <script src="{% static 'bootstrap/js/jqueryjquery.min.js'%}"></script>
+  <script src=" {% static 'bootstrap/dist/js/bootstrap.min.js'%}"></script>
+  
+</head>
+<body class="bg-light">
+
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>TODO</h1>      
+    <p>simple mark book</p>
+  </div>
+</div>
+
+
+
+
+  <div class="row p-4 justify-content-center d-flex ">
+    {% block insert %}
+    <div class="col-7 border border-primary ">
+        <form action="" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+      <div class="row position-relative">
+        <div class="col  d-flex justify-content-end ">
+            {% timezone TIME_ZONE %}
+          <b>{% now "F j, Y H:i:s" %}</b>
+            {% endtimezone %}
+        </div>
+       
+      </div>
+        <div class="mb-3-">
+            <label for="name_form" class="form-label">Heading</label>
+            <input type="text" name="name" id="name_form" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">content</label>
+            <textarea class="form-control" id="content" rows="3"></textarea>
+        </div>
+        <div class="col-12 d-flex mb-3 justify-content-center">
+            <button type="submit" class="btn btn-primary">add</button>
+          </div>
+
+        </form>
+    </div>
+    {% endblock insert %}
+    {% block read %}
+    <div class="col-7 border border-primary ">
+        <form action="" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+      <div class="row position-relative">
+        <div class="col  d-flex justify-content-end ">
+            {% timezone TIME_ZONE %}
+          <b>{% now "F j, Y H:i:s" %}</b>
+            {% endtimezone %}
+        </div>
+       
+      </div>
+        <div class="mb-3-">
+          sample
+          </div>
+
+        </form>
+    </div>
+    {% endblock read %}
+    {% block list_search %}
+    <div class="col-3 border border-danger  p-4 m-2 ">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-danger" type="button" id="button-addon2">Button</button>
+          </div>
+          <div class="col-12 m-2">
+            <div class="row">
+                <div class="p-2 mb-2 border border-primary">asdas</div>
+                <div class="p-2 bg-primary">asdas</div>
+            </div>
+          </div>
+
+    </div>
+    {% endblock list_search %}
+    {% block count %}
+    <div class="col-4 p-2 border border-danger justify-content-between d-flex m-2">
+        <div class="p-2 m-2 bg-info justify-content-center dflex">sa</div>
+        <div class="p-2 m-2 bg-info justify-content-center dflex">sa</div>
+        <div class="p-2 m-2 bg-info justify-content-center dflex">sa</div>
+    </div>
+    {% endblock count %}
+    {% block graph %}
+    <div class="col-4 p-2 border border-danger justify-content-between d-flex m-2">
+        asdas</div>
+    
+  </div>
+  {% endblock graph %}
+
+</body>
+</html>
