@@ -1,4 +1,19 @@
 {% extends 'blank.html' %}
-{% block read %}
-{% endblock read %}
 
+{% block msg %}
+<!-- message from server -->
+{% if messages  %}
+    {% for message in messages %}
+      
+        <div class="alert justify-content-center align-center alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+<!-- end msg  -->
+{% endblock msg %}
+
+
+{% block read %}
+
+{% endblock read %}
